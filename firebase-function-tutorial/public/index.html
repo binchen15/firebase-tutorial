@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+		<link href="./css/styles.css" rel="stylesheet">
+    <title>Functions Tutorial</title>
+  </head>
+  <body>
+
+		<div class="notification active"></div>
+		
+		<header>
+			<nav>
+				<a class="add-request">add request</a>
+				<a class="sign-out">sign out</a>
+			</nav>
+		</header>
+
+		<!-- new request modal -->
+    <div class="new-request">
+      <div class="modal">
+        <h2>Request a Tutorial</h2>
+        <form>
+          <input type="text" name="request" placeholder="Request...">
+          <button>Submit Request</button>
+          <p class="error"></p>
+        </form>
+      </div>
+    </div>
+
+		<!-- auth modals -->
+    <div class="auth open">
+      <div class="modal">
+        <h2>Login</h2>
+        <form class="login">
+          <input type="text" name="email" placeholder="Email">
+          <input type="password" name="password" placeholder="Password">
+          <button>Login</button>
+          <p class="error"></p>
+        </form>
+        <div>No account? <a class="switch">Register instead</a></div>
+      </div>
+      <div class="modal">
+        <h2>Register</h2>
+        <form class="register">
+          <input type="text" name="email" placeholder="Email">
+          <input type="password" name="password" placeholder="Password">
+          <button>Register</button>
+          <p class="error"></p>
+        </form>
+        <div>Got an account? <a class="switch">Login instead</a></div>
+      </div>
+    </div>
+
+		<section class='content' id='app'>
+			<h3>Firebase Functions Tutorial</h3>
+			<ul class="request-list">
+				<li v-for="req in requests">
+					<span class='text'> {{req.text}}</span>
+					<div>
+						<span class="votes">{{req.upvotes}}</span>
+						<i class="material-icons upvote" v-on:click="upvoteRequest(req.id)">arrow_upward</i>
+					</div>
+				</li>
+			</ul>
+			<button class='call'> sayHi</button>
+		</section>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<!--script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script defer src="/__/firebase/7.15.5/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.15.5/firebase-firestore.js"></script>
+    <script defer src="/__/firebase/7.15.5/firebase-functions.js"></script>
+    <script defer src="/__/firebase/init.js"></script-->
+
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-functions.js"></script>
+     
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCwv1C6-5eG82dvx4xTi_YdjJH9WFlD3Qk",
+        authDomain: "fir-firefunction-tutorial.firebaseapp.com",
+        databaseURL: "https://fir-firefunction-tutorial.firebaseio.com",
+        projectId: "fir-firefunction-tutorial",
+        storageBucket: "fir-firefunction-tutorial.appspot.com",
+        messagingSenderId: "1012339614784",
+        appId: "1:1012339614784:web:7586f26259a45f96a66ba5"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+
+		<!--script src="js/test.js"></script-->
+		<script src="js/app.js"></script>
+		<script src="js/auth.js"></script>
+		<script src="js/requests.js"></script>
+	
+  </body>
+</html>
